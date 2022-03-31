@@ -13,8 +13,9 @@ setup(
     long_description_content_type="text/markdown",
     author_email="verma.avesh001@gmail.com",
     url="https://github.com/AveshVerma/simple-dvc-project",
-    package_directory={"":"src"},
-    packages=find_packages(where="src"),
+    #package_directory={"":"src"},
+    #packages=find_packages(where="src"),
+    packages=["src"],
     license="GNU",
     python_requires=">=3.6",
     install_requires=[
@@ -23,6 +24,6 @@ setup(
         'dvc[s3]',
         'pandas',
         'scikit-learn',
-        
+
     ]
 )
