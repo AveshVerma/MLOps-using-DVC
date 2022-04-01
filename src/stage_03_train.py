@@ -8,8 +8,8 @@ from sklearn.linear_model import ElasticNet
 
 def train(config_path):
     config = read_params(config_path)
-
     artifacts = config["artifacts"]
+
     split_data = artifacts["split_data"]
     processed_data_dir = split_data["processed_data_dir"]
     test_data_path = split_data["test_path"]
@@ -18,7 +18,9 @@ def train(config_path):
     base = config["base"]
     split_ratio = base["test_size"]
     random_seed = base["random_state"]
+    target = base["target_col"]
 
+    
     reports = artifacts["reports"]
     params_file = reports["params"]
     reports_dir = reports["reports_dir"]
@@ -27,7 +29,7 @@ def train(config_path):
     alpha = ElasticNet_params["alpha"]
     l1_ratio = ElasticNet_params["l1_ratio"]
 
-    target = base["target_col"]
+
 
     train = pd.read_csv(train_data_path, sep = ",")
     train_y = train[target]
