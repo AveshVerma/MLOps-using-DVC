@@ -4,7 +4,14 @@ import joblib
 
 from src.utils.common_utils import (read_params,create_dir, save_reports)
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import logging
 
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format = logging_str
+)
 
 def eval_metrics(actual, pred):
     rmse = mean_squared_error(actual, pred, squared = False)
@@ -47,5 +54,8 @@ if __name__== '__main__':
 
     try:
         data = evaluate(config_path = parsed_args.config)
+        logging.info(f"evaluation stage completed.")
+
     except Exception as e:
-        raise e
+        logging.error(e)
+        #raise e
