@@ -4,7 +4,6 @@ import joblib
 
 from sklearn.linear_model import ElasticNet
 from src.utils.common_utils import (read_params,create_dir, save_reports)
-from sklearn.linear_model import ElasticNet
 
 def train(config_path):
     config = read_params(config_path)
@@ -20,7 +19,7 @@ def train(config_path):
     random_seed = base["random_state"]
     target = base["target_col"]
 
-    
+
     reports = artifacts["reports"]
     params_file = reports["params"]
     reports_dir = reports["reports_dir"]
